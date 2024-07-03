@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HNG: My Tech Goals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <img src="profile picture.png" alt="Slack Profile Picture" data-testid="slackProfilePicture">
+        <h3 data-testid="slackDisplayName">Scofieldominic</h3>
+    </header>
+
+    <main>
+        <section class="current-info">
+            <p>Current Time in UTC: <span data-testid="currentTimeUTC" id="currentTimeUTC"></span></p>
+            <p>Current Day: <span data-testid="currentDay" id="currentDay"></span></p>
+            <p>Slack Email: <span data-testid="slackEmail">oduzechidiukwu@gmail.com</span></p>
+        </section>
+
+        <section class="goals">
+            <h2>My 2 Year Tech Goals</h2>
+            <ul>
+                <li>Learn and master JavaScript frameworks like Svelte and React</li>
+                <li>Become proficient in backend development with Java and Node.js</li>
+                <li>Build and deploy at least 3 full-stack web applications</li>
+                <li>Contribute to open-source projects on Github </li>
+                <li>Obtain Azure cloud certification.</li>
+            </ul>
+
+        </section>
+        <section class="links">
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="https://hng.tech/learn" data-testid="hngLink">HNG Tech Learn</a></li>
+                <li><a href="https://keyword.dog" data-testid="keywordLink">Keyword</a></li>
+                <li><a href="https://scrapeanyweb.site" data-testid="scrapeanywebLink">Scrape Any Web</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTimeUTC = document.getElementById('currentTimeUTC');
+            const currentDay = document.getElementById('currentDay');
+
+            function updateTime() {
+                const now = new Date();
+                currentTimeUTC.textContent = now.toUTCString().split(' ')[4];
+                currentDay.textContent = now.toLocaleString('en-US', { weekday: 'long' });
+            }
+
+            updateTime();
+            setInterval(updateTime, 60000); // Update every minute
+        });
+    </script>
+
+</body>
+</html>
